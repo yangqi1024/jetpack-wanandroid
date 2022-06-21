@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Jetpack-MVVM-Architecture</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_phone">Phone</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <string name="login_success">登录成功</string>
+    <string name="login_error">登录失败</string>
+    <string name="login_username_empty">用户名不能为空</string>
+    <string name="login_password_empty">密码不能为空</string>
+</resources>
