@@ -1,14 +1,25 @@
-package cn.idesign.architecture.data.source.local
+package cn.idesign.architecture.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import cn.idesign.architecture.data.UserInfo
+import androidx.room.TypeConverters
+import cn.idesign.architecture.data.vo.Article
+import cn.idesign.architecture.data.vo.Banner
+import cn.idesign.architecture.data.vo.RemoteArticleKeys
+import cn.idesign.architecture.data.vo.UserInfo
 
-@Database(entities = [UserInfo::class], version = 1, exportSchema = false)
+@Database(
+    entities = [UserInfo::class, Article::class, RemoteArticleKeys::class, Banner::class],
+    version = 1,
+    exportSchema = false
+)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun articleDao(): ArticleDao
+    abstract fun remoteArticleKeysDao(): RemoteArticleKeysDao
 
 
     companion object {

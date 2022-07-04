@@ -1,8 +1,7 @@
 package cn.idesign.architecture.data.source
 
 
-import cn.idesign.architecture.data.Result
-import cn.idesign.architecture.data.UserInfo
+import cn.idesign.architecture.data.vo.UserInfo
 
 interface LocalDataSource {
     suspend fun saveUserInfo(userInfo: UserInfo)

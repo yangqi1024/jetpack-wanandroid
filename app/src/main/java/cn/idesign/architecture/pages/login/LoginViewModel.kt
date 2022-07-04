@@ -53,7 +53,7 @@ class LoginViewModel @Inject internal constructor(
         }
         viewModelScope.launch {
             val loginResult = dataRepository.login(username, password)
-            if(loginResult.succeeded){
+            if(loginResult.success()){
                 showSnackbarMessage(R.string.login_success)
             }else{
                 showSnackbarMessage(R.string.login_error)

@@ -1,10 +1,18 @@
 package cn.idesign.architecture.data.source
 
-import cn.idesign.architecture.data.UserInfo
-import cn.idesign.architecture.data.Result
+import androidx.paging.PagingData
+import cn.idesign.architecture.data.dto.CommonResponse
+import cn.idesign.architecture.data.vo.Article
+import cn.idesign.architecture.data.vo.Banner
+import cn.idesign.architecture.data.vo.UserInfo
+import kotlinx.coroutines.flow.Flow
 
 interface DataRepository {
-    suspend fun login(username: String, password: String):Result<Nothing>
+    suspend fun login(username: String, password: String): CommonResponse<Nothing>
 
     suspend fun saveUserInfo(userInfo: UserInfo)
+
+    fun getPagingData(): Flow<PagingData<Article>>
+
+    fun getHomeBanner(): Flow<List<Banner>>
 }

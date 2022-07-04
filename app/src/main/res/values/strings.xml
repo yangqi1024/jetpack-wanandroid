@@ -15,4 +15,7 @@
     <string name="login_error">登录失败</string>
     <string name="login_username_empty">用户名不能为空</string>
     <string name="login_password_empty">密码不能为空</string>
+    <string name="retry">重试</string>
+    <string name="title_home">首页</string>
+    <string name="title_knowledge">知识体系</string>
 </resources>

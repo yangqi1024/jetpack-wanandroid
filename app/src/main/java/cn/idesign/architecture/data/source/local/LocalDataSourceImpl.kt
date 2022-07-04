@@ -1,7 +1,8 @@
 package cn.idesign.architecture.data.source.local
 
 
-import cn.idesign.architecture.data.UserInfo
+import cn.idesign.architecture.data.db.UserDao
+import cn.idesign.architecture.data.vo.UserInfo
 import cn.idesign.architecture.data.source.LocalDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

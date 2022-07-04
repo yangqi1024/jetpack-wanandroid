@@ -1,16 +1,21 @@
 package cn.idesign.architecture.data.source
 
-import cn.idesign.architecture.data.Result
-import cn.idesign.architecture.data.UserInfo
+import androidx.paging.PagingData
+import cn.idesign.architecture.data.dto.CommonResponse
+import cn.idesign.architecture.data.vo.Article
+import cn.idesign.architecture.data.vo.Banner
+import cn.idesign.architecture.data.vo.UserInfo
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 
 class DefaultDataRepository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
+    private val pageDataSource: PageDataSource,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : DataRepository {
-    override suspend fun login(username: String, password: String): Result<Nothing> {
+    override suspend fun login(username: String, password: String): CommonResponse<Nothing> {
         return remoteDataSource.login(username, password)
     }
 
@@ -18,4 +23,8 @@ class DefaultDataRepository(
         localDataSource.saveUserInfo(userInfo)
     }
 
+    override fun getPagingData(): Flow<PagingData<Article>> = pageDataSource.getPagingData()
+
+    override fun getHomeBanner(): Flow<List<Banner>> =
+        remoteDataSource.getHomeBanner()
 }
