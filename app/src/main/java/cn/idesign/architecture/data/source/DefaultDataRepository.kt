@@ -23,7 +23,9 @@ class DefaultDataRepository(
         localDataSource.saveUserInfo(userInfo)
     }
 
-    override fun getPagingData(): Flow<PagingData<Article>> = pageDataSource.getPagingData()
+    override fun getRecommendData(): Flow<PagingData<Article>> = pageDataSource.getRecommendData()
+    override fun getWenDaData(): Flow<PagingData<Article>> = pageDataSource.getWenDaData()
+    override fun getProjectData(): Flow<PagingData<Article>> = pageDataSource.getProjectData()
 
     override fun getHomeBanner(): Flow<List<Banner>> =
         remoteDataSource.getHomeBanner()

@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import cn.chinaunicom.drone.ui.main.processed.KnowledgeViewModel
 import cn.idesign.architecture.databinding.FragmentKnowledgeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class KnowledgeFragment : Fragment() {
 
     private var _binding: FragmentKnowledgeBinding? = null

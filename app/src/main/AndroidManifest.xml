@@ -3,6 +3,7 @@
     package="cn.idesign.architecture">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ArchitectureApplication"
         android:allowBackup="true"
@@ -12,20 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackMVVMArchitecture">
         <activity
+            android:name=".pages.detail.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".pages.login.LoginActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".pages.main.MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-                <activity
-                    android:name=".pages.main.MainActivity"
-                    android:exported="true">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
-
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
     </application>
 
 </manifest>

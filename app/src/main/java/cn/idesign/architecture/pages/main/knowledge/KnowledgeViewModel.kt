@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class KnowledgeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "已处理 Fragment"
+        value = "Knowledge"
     }
     val text: LiveData<String> = _text
 }

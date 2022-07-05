@@ -12,7 +12,8 @@ import cn.idesign.architecture.data.vo.Banner
 import cn.idesign.architecture.databinding.LayoutArticleItemBinding
 import cn.idesign.architecture.databinding.LayoutBannerBinding
 
-class RepoRecyclerAdapter : PagingDataAdapter<Article, RecyclerView.ViewHolder>(COMPARATOR) {
+class RecommendRecyclerAdapter(val click: (article: Article) -> Unit) :
+    PagingDataAdapter<Article, RecyclerView.ViewHolder>(COMPARATOR) {
     private var bannerList: List<Banner> = mutableListOf()
 
     fun addBannerList(list: List<Banner>) {
@@ -30,7 +31,7 @@ class RepoRecyclerAdapter : PagingDataAdapter<Article, RecyclerView.ViewHolder>(
             )
         }
 
-        return RepoViewHolder(
+        return RecommendViewHolder(
             LayoutArticleItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -45,11 +46,16 @@ class RepoRecyclerAdapter : PagingDataAdapter<Article, RecyclerView.ViewHolder>(
         if (TYPE_BANNER == itemViewType) {
             (holder as BannerItemViewHolder).bindData(bannerList)
         } else {
-            val item = getItem(position - 1)?.let {
-                (holder as RepoViewHolder).bindData(it)
+            val item = getItem(position - 1)?.let { article ->
+                val recommendViewHolder = holder as RecommendViewHolder
+                recommendViewHolder.bindData(article)
+                recommendViewHolder.binding.root.setOnClickListener {
+                    click(article)
+                }
             }
 
         }
+
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -77,15 +83,15 @@ class RepoRecyclerAdapter : PagingDataAdapter<Article, RecyclerView.ViewHolder>(
     }
 }
 
-class RepoViewHolder(val binding: LayoutArticleItemBinding) :
+class RecommendViewHolder(val binding: LayoutArticleItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     @SuppressLint("SetTextI18n")
     fun bindData(item: Article) {
-        binding.tvTitle.text = "${item.customId} ${item.title}"
+        binding.tvTitle.text = item.title
         binding.tvDesc.text = item.desc
         binding.tvShareUser.text = getUser(item)
         binding.tvNiceDate.text = "时间: ${item.niceDate}"
-        binding.tvTagName.text = if(item.tags.isEmpty()) "" else item.tags[0].name
+        binding.tvTagName.text = if (item.tags.isEmpty()) "" else item.tags[0].name
         binding.tvTagName.visibility =
             if (item.tags.isEmpty()) View.GONE else View.VISIBLE
     }

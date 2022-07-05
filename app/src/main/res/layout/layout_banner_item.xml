@@ -24,12 +24,15 @@
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:background="#20000000"
         android:ellipsize="end"
+        android:gravity="center_vertical"
         android:maxLines="1"
+        android:padding="10dp"
         android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题" />
 

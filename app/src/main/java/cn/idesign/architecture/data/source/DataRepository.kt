@@ -12,7 +12,11 @@ interface DataRepository {
 
     suspend fun saveUserInfo(userInfo: UserInfo)
 
-    fun getPagingData(): Flow<PagingData<Article>>
+    fun getRecommendData(): Flow<PagingData<Article>>
+
+    fun getWenDaData(): Flow<PagingData<Article>>
+
+    fun getProjectData(): Flow<PagingData<Article>>
 
     fun getHomeBanner(): Flow<List<Banner>>
 }

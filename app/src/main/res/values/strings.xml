@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Jetpack-MVVM-Architecture</string>
+    <string name="app_name">玩转安卓</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_phone">Phone</string>
     <string name="prompt_password">Password</string>
@@ -18,4 +18,5 @@
     <string name="retry">重试</string>
     <string name="title_home">首页</string>
     <string name="title_knowledge">知识体系</string>
+    <string name="title_project">项目</string>
 </resources>

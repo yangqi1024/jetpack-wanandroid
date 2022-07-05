@@ -5,11 +5,18 @@ import com.bumptech.glide.Glide
 
 class ImageLoader private constructor() {
 
-    fun load(view: ImageView,url:String){
+    fun load(view: ImageView, url: String) {
         Glide
             .with(view)
             .load(url)
-            .centerCrop()
+            .into(view);
+    }
+
+    fun loadCircle(view: ImageView, url: String) {
+        Glide
+            .with(view)
+            .load(url)
+            .circleCrop()
             .into(view);
     }
 
