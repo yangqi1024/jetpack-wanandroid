@@ -113,6 +113,6 @@ class RecommendViewHolder(val binding: LayoutArticleItemBinding) :
 class BannerItemViewHolder(val binding: LayoutBannerBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bindData(item: List<Banner>) {
-        binding.root.adapter = BannerAdapter(item)
+        binding.viewPager.adapter = BannerAdapter(item)
     }
 }
